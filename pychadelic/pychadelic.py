@@ -2,7 +2,7 @@
 
 from typing import List, Tuple, Union
 import cv2
-import moviepy
+import moviepy.editor
 import numpy as np
 
 
@@ -42,23 +42,23 @@ def rainbowify(image: 'np.array',
     range.  In the original image, each pixel's brightness is increased for
     each output frame to create the motion effect.
 
-    Args:
-        image: numpy array containing the original image.
-        n_frames: number of successive frames to output.
-        output_size: tuple in the form of (width, height); if this is set to
-            None, then the original image size is used.
-        color_scheme: list of colors to use in the output image sequence;
-            colors can be in the form (B, G, R) where B, G, and R are integers
-            or strings in the #RRGGBB format.
+    # Args:
+    - *image*: numpy array containing the original image.
+    - *n_frames*: number of successive frames to output.
+    - *output_size*: tuple in the form of (width, height); if this is set to
+        None, then the original image size is used.
+    - *color_scheme*: list of colors to use in the output image sequence;
+        colors can be in the form (B, G, R) where B, G, and R are integers
+        or strings in the #RRGGBB format.
 
-    Returns:
-        A list of numpy arrays containing the frames of the animated effect.
+    # Returns:
+    A list of numpy arrays containing the frames of the animated effect.
     """
     if output_size is None:
         output_size = (image.shape[1], image.shape[0])
     image = cv2.resize(image, output_size)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    sequence = np.array([n_frames, image.shape[0], image.shape[1], 3])
+    sequence = np.zeros((n_frames, image.shape[0], image.shape[1], 3))
     lbounds = [np.floor(x * 255 / len(color_scheme))
                for x in range(len(color_scheme))]
     ubounds = [np.floor((x+1) * 255 / len(color_scheme))
@@ -69,6 +69,8 @@ def rainbowify(image: 'np.array',
             blue = np.where((image > lower) & (image <= upper), color[0], 0)
             green = np.where((image > lower) & (image <= upper), color[1], 0)
             red = np.where((image > lower) & (image <= upper), color[2], 0)
+            # print(f"BLUE: {blue.shape}")
+            # print(f"SEQUENCE: {sequence.shape}")
             sequence[idx, :, :, 0] += blue
             sequence[idx, :, :, 1] += green
             sequence[idx, :, :, 2] += red
@@ -85,15 +87,15 @@ def psychadelic_gif(input_file: str,
                     color_scheme: ColorScheme = PARTY_PARROT_RAINBOW) -> None:
     """Create a psychadelic gif givent the path to an input image file.
 
-    Args:
-        input_file: path to input image file.
-        output_file: path to output file.
-        output_size: tuple in the form of (width, height) of the desired size.
-            of the output gif; if set to None, then the size of the input image
-            is used.
-        speed: fps of the output gif.
-        duration: length of the ouptut gif in seconds.
-        color_scheme: the palette of colors to use for the psychadeilic effect.
+    # Args:
+    - *input_file*: path to input image file.
+    - *output_file*: path to output file.
+    - *output_size*: tuple in the form of (width, height) of the desired size.
+        of the output gif; if set to None, then the size of the input image
+        is used.
+    - *speed*: fps of the output gif.
+    - *duration*: length of the ouptut gif in seconds.
+    - *color_scheme*: the palette of colors to use for the psychadeilic effect.
     """
     sequence = rainbowify(
         image=cv2.imread(input_file),
@@ -117,15 +119,15 @@ def psychadelic_mp4(input_file: str,
                     color_scheme: ColorScheme = PARTY_PARROT_RAINBOW) -> None:
     """Create a psychadelic mp4 givent the path to an input image file.
 
-    Args:
-        input_file: path to input image file.
-        output_file: path to output file.
-        output_size: tuple in the form of (width, height) of the desired size.
-            of the output gif; if set to None, then the size of the input image
-            is used.
-        speed: fps of the output gif.
-        duration: length of the ouptut gif in seconds.
-        color_scheme: the palette of colors to use for the psychadeilic effect.
+    # Args:
+    - *input_file*: path to input image file.
+    - *output_file*: path to output file.
+    - *output_size*: tuple in the form of (width, height) of the desired size.
+        of the output gif; if set to None, then the size of the input image
+        is used.
+    - *speed*: fps of the output gif.
+    - *duration*: length of the ouptut gif in seconds.
+    - *color_scheme*: the palette of colors to use for the psychadeilic effect.
     """
     sequence = rainbowify(
         image=cv2.imread(input_file),
@@ -134,7 +136,7 @@ def psychadelic_mp4(input_file: str,
         color_scheme=color_scheme)
     writer = cv2.VideoWriter(
         output_file,
-        cv2.cv.CV_FOURCC(*'XVID'),
+        cv2.VideoWriter_fourcc(*'XVID'),
         speed,
         (sequence.shape[2], sequence.shape[1]))
     for i in range(sequence.shape[0]):

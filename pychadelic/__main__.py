@@ -4,12 +4,12 @@
 import argparse
 
 
-from .pychadelic import *
+from .pychadelic import psychadelic_gif, psychadelic_mp4
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
-        decription='Add psychadelic effect to image.')
+        description='Add psychadelic effect to image.')
     parser.add_argument('input_file', help='Path to the input image file.')
     parser.add_argument('output_file', help='Output file path.')
     parser.add_argument(

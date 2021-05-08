@@ -13,13 +13,15 @@ deps = coverage
        numpy
        opencv-python
        pycodestyle
-       pydoc-markdown
+       pydoc-markdown==2.1.3
        pylint
 commands = pycodestyle pychadelic test setup.py
            pylint --disable=E1101 pychadelic test setup.py
            coverage run --source=pychadelic -m unittest discover
            coverage report -m
            python setup.py sdist
-           bash -c 'pydocmd simple pychadelic++ > doc/api_documentation.md'
+           bash -c 'pydocmd simple pychadelic++ pychadelic.rainbowify++ \
+             pychadelic.psychadelic_gif++ pychadelic.psychadelic_mp4++ \
+             > doc/api_documentation.md'
 whitelist_externals = /bin/bash
 """

@@ -1,11 +1,12 @@
 """Unit test cases for the pychadelic module."""
 
 
+import os
 import unittest
 
 
+import cv2
 import numpy as np
-import opencv
 import pychadelic
 
 
@@ -38,7 +39,7 @@ class TestPsychadelicGif(unittest.TestCase):
 
     def setUp(self) -> None:
         """Create a dummy picture as input data for tests."""
-        cv2.imwrite('temp.png', np.zeros(320, 240, 3), dtype=np.uint8)
+        cv2.imwrite('temp.png', np.zeros((320, 240, 3), dtype=np.uint8))
 
     def test_defaults(self) -> None:
         """Test function with default arguments."""
@@ -51,7 +52,7 @@ class TestPsychadelicMp4(unittest.TestCase):
 
     def setUp(self) -> None:
         """Create a dummy picture as input data for tests."""
-        cv2.imwrite('temp.png', np.zeros(320, 240, 3), dtype=np.uint8)
+        cv2.imwrite('temp.png', np.zeros((320, 240, 3), dtype=np.uint8))
 
     def test_defaults(self) -> None:
         """Test function with default arguments."""
