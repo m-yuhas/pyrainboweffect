@@ -1,0 +1,25 @@
+[build-system]
+requires = [ "setuptools >= 35.0.2", "wheel >= 0.29.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py35,py36,py36,py37,py38,py39
+
+[testenv]
+deps = coverage
+       moviepy
+       numpy
+       opencv-python
+       pycodestyle
+       pydoc-markdown
+       pylint
+commands = pycodestyle pychadelic test setup.py
+           pylint pychadelic test setup.py
+           coverage run --source=pychadelic -m unittest discover
+           coverage report -m
+           python setup.py sdist
+           bash -c 'pydocmd simple pychadelic++ > doc/api_documentation.md'
+whitelist_externals = /bin/bash
+"""
