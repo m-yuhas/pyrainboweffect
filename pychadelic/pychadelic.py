@@ -9,14 +9,14 @@ import numpy as np
 ColorScheme = List[Union[str, Tuple[int]]]
 
 
-SIX_COLOR_RAINBOW = [
+SIX_COLOR_RAINBOW = (
     (0xFF, 0x00, 0x00),
     (0xFF, 0xFF, 0x00),
     (0x00, 0xFF, 0x00),
     (0x00, 0xFF, 0xFF),
     (0x00, 0x00, 0xFF),
-    (0xFF, 0x00, 0xFF)]
-PARTY_PARROT_RAINBOW = [
+    (0xFF, 0x00, 0xFF))
+PARTY_PARROT_RAINBOW = (
     (0xFF, 0x6B, 0x6B),
     (0xFF, 0x6B, 0xB5),
     (0xFF, 0x81, 0xFF),
@@ -25,11 +25,11 @@ PARTY_PARROT_RAINBOW = [
     (0x81, 0xFF, 0xFF),
     (0x81, 0xFF, 0x81),
     (0xFF, 0xD0, 0x81),
-    (0xFF, 0x81, 0x81)]
-PATRIOTIC_RAINBOW = [
+    (0xFF, 0x81, 0x81))
+PATRIOTIC_RAINBOW = (
     (0x00, 0x00, 0xFF),
     (0xFF, 0xFF, 0xFF),
-    (0xFF, 0x00, 0x00)]
+    (0xFF, 0x00, 0x00))
 
 
 def rainbowify(image: 'np.array',
@@ -59,23 +59,24 @@ def rainbowify(image: 'np.array',
     image = cv2.resize(image, output_size)
     image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     sequence = np.array([n_frames, image.shape[0], image.shape[1], 3])
-    lbounds = [numpy.floor(x * 255 / len(color_scheme)) \
-        for x in range(len(color_scheme))]
-    ubounds = [numpy.floor((x+1) * 255 / len(color_scheme)) \
-        for x in range(len(color_scheme))]
+    lbounds = [np.floor(x * 255 / len(color_scheme))
+               for x in range(len(color_scheme))]
+    ubounds = [np.floor((x+1) * 255 / len(color_scheme))
+               for x in range(len(color_scheme))]
     bounds = zip(color_scheme, lbounds, ubounds)
     for idx in range(n_frames):
         for color, lower, upper in bounds:
             blue = np.where((image > lower) & (image <= upper), color[0], 0)
             green = np.where((image > lower) & (image <= upper), color[1], 0)
             red = np.where((image > lower) & (image <= upper), color[2], 0)
-            sequence[idx,:,:,0] += blue
-            sequence[idx,:,:,1] += green
-            sequence[idx,:,:,2] += red
+            sequence[idx, :, :, 0] += blue
+            sequence[idx, :, :, 1] += green
+            sequence[idx, :, :, 2] += red
         image += 1
     return np.uint8(sequence)
 
 
+# pylint: disable=R0913
 def psychadelic_gif(input_file: str,
                     output_file: str,
                     output_size: Tuple[int] = None,
@@ -99,12 +100,15 @@ def psychadelic_gif(input_file: str,
         n_frames=int(speed * duration),
         output_size=output_size,
         color_scheme=color_scheme)
+
     def make_frame(time):
-        return sequence[int(time * fps),:,:,:]
+        return sequence[int(time * speed), :, :, :]
+
     clip = moviepy.editor.VideoClip(make_frame, duration=duration)
     clip.write_gif(output_file, fps=speed)
 
 
+# pylint: disable=R0913
 def psychadelic_mp4(input_file: str,
                     output_file: str,
                     output_size: Tuple[int] = None,
@@ -134,5 +138,5 @@ def psychadelic_mp4(input_file: str,
         speed,
         (sequence.shape[2], sequence.shape[1]))
     for i in range(sequence.shape[0]):
-        writer.write(sequence[i,:,:,:])
+        writer.write(sequence[i, :, :, :])
     writer.release()

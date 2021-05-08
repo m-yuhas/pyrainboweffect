@@ -14,7 +14,7 @@ class TestRainbowify(unittest.TestCase):
 
     def setUp(self) -> None:
         """Create some dummy data for the tests."""
-        self.dummy_data = np.zeros((320, 240, 3), dtype=np.uint8))
+        self.dummy_data = np.zeros((320, 240, 3), dtype=np.uint8)
 
     def test_defaults(self) -> None:
         """Test function with default arguments."""

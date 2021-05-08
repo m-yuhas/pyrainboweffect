@@ -16,7 +16,7 @@ deps = coverage
        pydoc-markdown
        pylint
 commands = pycodestyle pychadelic test setup.py
-           pylint pychadelic test setup.py
+           pylint --disable=E1101 pychadelic test setup.py
            coverage run --source=pychadelic -m unittest discover
            coverage report -m
            python setup.py sdist
