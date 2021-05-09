@@ -8,11 +8,11 @@
 ## Introduction
 Take an image like this:
 
-![Loading...](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_in.png)
+![image](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_in.png)
 
 And transform it to this:
 
-![Loading...](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_out.gif)
+![image](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_out.gif)
 
 ## Quick Start
 * Install the package:
@@ -51,12 +51,12 @@ $ python -m pychedelic input.png output.gif
 For the complete API documentation, [click here](https://github.com/m-yuhas/pychedelic/blob/main/doc/api_documentation.md).
 
 ## Theory of Operation
-This effect can be generated as follows:
-1. Convert the image to greyscale.
+It looks like this effect can be generated with the following steps:
+1. Convert the image to greyscale
 2. Partition the intensity space into the same number of partitions as colors
   in the color scheme.
-3. Set the intensity regions to their corresponding colors
-4. Increase the intensity of all pixels in the original image (restarting at 0
+3. Set the intesity regions to their corresponding colors
+4. Increase the intensity of all pixels in the images (restarting at 0
   intensity if overflow occurs).
 5. Go to step 2 and repeat until there are enough sequential frames to make an
   animation.
