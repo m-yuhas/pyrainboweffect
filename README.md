@@ -1,45 +1,52 @@
-# Pychadelic
+# Pychedelic
+[中文指南](https://github.com/m-yuhas/pychedelic/blob/main/doc/读我档案.md)
+
+[Documentación en español](https://github.com/m-yuhas/pychedelic/blob/main/doc/LÉAME.md)
+
+[Documentation en français](https://github.com/m-yuhas/pychedelic/blob/main/doc/LISEZ-MOI.md)
 
 ## Introduction
 Take an image like this:
+![image](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_in.png)
 
-And change it to this:
+And transform it to this:
+![image](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_out.gif)
 
 ## Quick Start
 * Install the package:
 
 ```
-pip install pychadelic
+pip install pychedelic
 ```
 
 ### Python API
 In a Python console, import the package:
 
 ```python
->>> import pychadelic
+>>> import pychedelic
 ```
 
 Apply the effect to an image file and save the result as a gif:
 
 ```python
->>> pychadelic.psychadelic_gif('input.png', 'output.gif')
+>>> pychedelic.psychedelic_gif('input.png', 'output.gif')
 ```
 
 Apply the effect to an image file and save the result as an mp4:
 
 ```python
->>> pychadelic.psychadelic_mp4('input.png', 'output.gif')
+>>> pychedelic.psychedelic_mp4('input.png', 'output.gif')
 ```
 
 ### CLI
 To use the CLI:
 
 ```bash
-$ python -m pychadelic input.png output.gif
+$ python -m pychedelic input.png output.gif
 ```
 
 ## API Documentation
-For the complete API documentation, [click here](https://github.com/m-yuhas/pychadelic/blob/master/doc/api_documentation.md).
+For the complete API documentation, [click here](https://github.com/m-yuhas/pychedelic/blob/main/doc/api_documentation.md).
 
 ## Theory of Operation
 It looks like this effect can be generated with the following steps:
@@ -49,7 +56,7 @@ It looks like this effect can be generated with the following steps:
 3. Set the intesity regions to their corresponding colors
 4. Increase the intensity of all pixels in the images (restarting at 0
   intensity if overflow occurs).
-5. Go to step 2 and repeat until there are enough sequential frams to make an
+5. Go to step 2 and repeat until there are enough sequential frames to make an
   animation.
 
 ## Dependencies
@@ -66,4 +73,4 @@ Suggestions and pull requests are welcome.  If you find a bug and don't have
 time to fix it yourself, feel free to open an issue.
 
 ## Future Tasks
-- TODO: Apply the psychadelic effect to an animated image or video.
+- TODO: Apply the psychedelic effect to an animated image or video.

@@ -1,5 +1,5 @@
 
-# pychadelic
+# pychedelic
 This module contains tools to apply the animated rainbow effect to images.
 
 __CLI__
@@ -7,12 +7,12 @@ __CLI__
 In addition to providing a Python API to add effects to images, this module
 also provides a CLI tool.  This can be run from any terminal as follows:
 ```
-python -m pychadelic input.png ouput.mp4
+python -m pychedelic input.png ouput.mp4
 ```
 
 __Module Level Constants__
 
-When adding a psychadelic animation effect to an image, it is convinient to
+When adding a psychedelic animation effect to an image, it is convinient to
 choose the color scheme: the set of colors that appear in the output animation.
 Three color schemes are provided by default as module level constants:
 `SIX_COLOR_RAINBOW` is composed of red, yellow, cyan, blue, green, and magenta.
@@ -52,9 +52,9 @@ __Returns:__
 A list of numpy arrays containing the frames of the animated effect.
 
 
-# psychadelic_gif
+# psychedelic_gif
 ```python
-psychadelic_gif(
+psychedelic_gif(
     input_file: str,
     output_file: str,
     output_size: typing.Tuple[int] = None,
@@ -64,7 +64,7 @@ psychadelic_gif(
     typing.List[typing.Union[str, typing.Tuple[int]]] = ((255, 107, 107), (255, 107, 181), (255, 129, 255), (208, 129, 255), (129, 172, 255), (129, 255, 255), (129, 255, 129), (255, 208, 129), (255, 129, 129))
 )
 ```
-Create a psychadelic gif givent the path to an input image file.
+Create a psychedelic gif givent the path to an input image file.
 
 __Args:__
 
@@ -75,12 +75,12 @@ __Args:__
     is used.
 - *speed*: fps of the output gif.
 - *duration*: length of the ouptut gif in seconds.
-- *color_scheme*: the palette of colors to use for the psychadeilic effect.
+- *color_scheme*: the palette of colors to use for the psychedeilic effect.
 
 
-# psychadelic_mp4
+# psychedelic_mp4
 ```python
-psychadelic_mp4(
+psychedelic_mp4(
     input_file: str,
     output_file: str,
     output_size: typing.Tuple[int] = None,
@@ -90,7 +90,7 @@ psychadelic_mp4(
     typing.List[typing.Union[str, typing.Tuple[int]]] = ((255, 107, 107), (255, 107, 181), (255, 129, 255), (208, 129, 255), (129, 172, 255), (129, 255, 255), (129, 255, 129), (255, 208, 129), (255, 129, 129))
 )
 ```
-Create a psychadelic mp4 givent the path to an input image file.
+Create a psychedelic mp4 givent the path to an input image file.
 
 __Args:__
 
@@ -101,5 +101,5 @@ __Args:__
     is used.
 - *speed*: fps of the output gif.
 - *duration*: length of the ouptut gif in seconds.
-- *color_scheme*: the palette of colors to use for the psychadeilic effect.
+- *color_scheme*: the palette of colors to use for the psychedelic effect.
 
