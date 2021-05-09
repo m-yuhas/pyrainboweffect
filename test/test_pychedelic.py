@@ -7,7 +7,7 @@ import unittest
 
 import cv2
 import numpy as np
-import pychedelic
+import pyrainboweffect
 
 
 class TestRainbowify(unittest.TestCase):
@@ -19,7 +19,7 @@ class TestRainbowify(unittest.TestCase):
 
     def test_defaults(self) -> None:
         """Test function with default arguments."""
-        output = pychedelic.rainbowify(self.dummy_data, 256)
+        output = pyrainboweffect.rainbowify(self.dummy_data, 256)
         self.assertEqual(
             output.shape,
             (256, 320, 240, 3),
@@ -27,7 +27,7 @@ class TestRainbowify(unittest.TestCase):
 
     def test_custom_size(self) -> None:
         """Test function with custom output size."""
-        output = pychedelic.rainbowify(self.dummy_data, 10, (10, 10))
+        output = pyrainboweffect.rainbowify(self.dummy_data, 10, (10, 10))
         self.assertEqual(
             output.shape,
             (10, 10, 10, 3),
@@ -43,8 +43,17 @@ class TestPsychedelicGif(unittest.TestCase):
 
     def test_defaults(self) -> None:
         """Test function with default arguments."""
-        pychedelic.psychedelic_gif('temp.png', 'output.gif')
+        pyrainboweffect.psychedelic_gif('temp.png', 'output.gif')
         self.assertTrue(os.path.isfile('output.gif'), 'File not created')
+
+    def tearDown(self) -> None:
+        """Clean up any created files."""
+        for file in os.listdir():
+            if file.endswith('.png') or file.endswith('.gif'):
+                try:
+                    os.remove(file)
+                except OSError:
+                    pass
 
 
 class TestPsychedelicMp4(unittest.TestCase):
@@ -56,8 +65,17 @@ class TestPsychedelicMp4(unittest.TestCase):
 
     def test_defaults(self) -> None:
         """Test function with default arguments."""
-        pychedelic.psychedelic_mp4('temp.png', 'output.mp4')
+        pyrainboweffect.psychedelic_mp4('temp.png', 'output.mp4')
         self.assertTrue(os.path.isfile('output.mp4'), 'File not created')
+
+    def tearDown(self) -> None:
+        """Clean up any created files."""
+        for file in os.listdir():
+            if file.endswith('.png') or file.endswith('.mp4'):
+                try:
+                    os.remove(file)
+                except OSError:
+                    pass
 
 
 if __name__ == '__main__':

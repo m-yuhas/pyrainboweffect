@@ -1,4 +1,4 @@
-"""Setup script for the musical_hash package."""
+"""Setup script for the pyrainboweffect package."""
 
 
 from os import path
@@ -14,12 +14,12 @@ with open(
 
 
 setup(
-    name='pychedelic',
+    name='pyrainboweffect',
     version='0.1',
     author='m-yuhas',
     author_email='m-yuhas@qq.com',
     maintainer='m-yuhas',
-    url='https://github.com/m-yuhas/pychedelic',
+    url='https://github.com/m-yuhas/pyrainboweffect',
     description='apply the animated rainbow effect to images',
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',
@@ -42,6 +42,6 @@ setup(
         'Topic :: Artistic Software',
         'Topic :: Multimedia',
         'Topic :: Multimedia :: Graphics'],
-    packages=['pychedelic'],
+    packages=['pyrainboweffect'],
     include_package_data=False,
     install_requires=['moviepy', 'numpy', 'opencv-python'])

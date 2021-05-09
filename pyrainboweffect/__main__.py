@@ -4,7 +4,7 @@
 import argparse
 
 
-from .pychedelic import psychedelic_gif, psychedelic_mp4
+from .pyrainboweffect import psychedelic_gif, psychedelic_mp4
 
 
 if __name__ == '__main__':

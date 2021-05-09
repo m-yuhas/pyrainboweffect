@@ -1,78 +1,73 @@
-# Pychedelic
-[中文指南](https://github.com/m-yuhas/pychedelic/blob/main/doc/读我档案.md)
+# pyrainboweffect
+## Introducción
+Tome imagen como esta:
 
-[Documentación en español](https://github.com/m-yuhas/pychedelic/blob/main/doc/LÉAME.md)
+![Cargando...](../images/demo0_in.png)
 
-[Documentation en français](https://github.com/m-yuhas/pychedelic/blob/main/doc/LISEZ-MOI.md)
+Y la transforme:
 
-## Introduction
-Take an image like this:
+![Cargando...](../images/demo0_out.gif)
 
-![image](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_in.png)
-
-And transform it to this:
-
-![image](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_out.gif)
-
-## Quick Start
-* Install the package:
+## Comienzo Rápido
+* Instale el paquete:
 
 ```
-pip install pychedelic
+pip install pyrainboweffect
 ```
 
-### Python API
-In a Python console, import the package:
+### Python IPA
+En una consola Python, importe el paquete:
 
 ```python
->>> import pychedelic
+>>> import pyrainboweffect
 ```
 
-Apply the effect to an image file and save the result as a gif:
+Aplique el efecto a un archivo de imagen y guarde el resultado como un GIF:
 
 ```python
->>> pychedelic.psychedelic_gif('input.png', 'output.gif')
+>>> pyrainboweffect.psychedelic_gif('input.png', 'output.gif')
 ```
 
-Apply the effect to an image file and save the result as an mp4:
+Aplique el efecto a un archivo de imagen y guarde el resultado como un mp4:
 
 ```python
->>> pychedelic.psychedelic_mp4('input.png', 'output.gif')
+>>> pyrainboweffect.psychedelic_mp4('input.png', 'output.gif')
 ```
 
 ### CLI
-To use the CLI:
+Para usar la interfaz de línea de órdenes:
 
 ```bash
-$ python -m pychedelic input.png output.gif
+$ python -m pyrainboweffect input.png output.gif
 ```
 
-## API Documentation
-For the complete API documentation, [click here](https://github.com/m-yuhas/pychedelic/blob/main/doc/api_documentation.md).
+## Documentación de IPA
+Para la documentación de IPA completa, [clica aquí](api_documentation.md).
+Actualmente la documentación es solamente disponible en inglés.
 
-## Theory of Operation
-It looks like this effect can be generated with the following steps:
-1. Convert the image to greyscale
-2. Partition the intensity space into the same number of partitions as colors
-  in the color scheme.
-3. Set the intesity regions to their corresponding colors
-4. Increase the intensity of all pixels in the images (restarting at 0
-  intensity if overflow occurs).
-5. Go to step 2 and repeat until there are enough sequential frames to make an
-  animation.
+## Teoría de Operación
+Parace que este efecto puede ser generado utilizando los pasos siguientes:
+1. Convertir la imagen a la escala de grises.
+2. Dividir el espacio de intensidad en el mismo número de particiones como
+  colores en la esquema de colores.
+3. Colocar las regiones de intensidad a sus colores correspondientes.
+4. Incrementar la intensidad de todos los pixeles en la imagen original
+  (empezar de nuevo a 0 si sucede el desbordamiento aritmético).
+5. Regresar al paso 2 y repetir hasta hay cuadros secuenciales suficientes para
+  formar una animación.
 
-## Dependencies
-Only Python version 3.5 and greater are supported.  This package should run on
-any POSIX system as well as Windows 7 and greater.
+## Dependencias
+Solamente las versiones del Python 3.5 y arriba son compatibles.  Este paquete
+debe poder ejecutado en alguno sistema POSIX así como Windows 7 y arriba.
 
-The following Pypi packages are required:
+Los paquetes Pypi siguientes son requeridos:
 * moviepy
 * numpy
 * opencv-python
 
-## Contributing
-Suggestions and pull requests are welcome.  If you find a bug and don't have
-time to fix it yourself, feel free to open an issue.
+## Cómo Contribuir
+Las sugerencias y «pull requests» son bienvenidos. Si encuentra un bug y no
+tiene el tiempo para arreglarlo su mismo, por favor abre un problema.
 
-## Future Tasks
-- TODO: Apply the psychedelic effect to an animated image or video.
+## Tarea Futura
+- Aplicar el efecto psicodélico a una imagen animada o video.

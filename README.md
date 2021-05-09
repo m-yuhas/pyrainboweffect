@@ -1,54 +1,54 @@
-# Pychedelic
-[中文指南](https://github.com/m-yuhas/pychedelic/blob/main/doc/读我档案.md)
+# pyrainboweffect
+[中文指南](https://github.com/m-yuhas/pyrainboweffect/blob/main/doc/读我档案.md)
 
-[Documentación en español](https://github.com/m-yuhas/pychedelic/blob/main/doc/LÉAME.md)
+[Documentación en español](https://github.com/m-yuhas/pyrainboweffect/blob/main/doc/LÉAME.md)
 
-[Documentation en français](https://github.com/m-yuhas/pychedelic/blob/main/doc/LISEZ-MOI.md)
+[Documentation en français](https://github.com/m-yuhas/pyrainboweffect/blob/main/doc/LISEZ-MOI.md)
 
 ## Introduction
 Take an image like this:
 
-![Loading...](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_in.png)
+![Loading...](https://github.com/m-yuhas/pyrainboweffect/blob/main/images/demo0_in.png)
 
 And transform it to this:
 
-![Loading...](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_out.gif)
+![Loading...](https://github.com/m-yuhas/pyrainboweffect/blob/main/images/demo0_out.gif)
 
 ## Quick Start
 * Install the package:
 
 ```
-pip install pychedelic
+pip install pyrainboweffect
 ```
 
 ### Python API
 In a Python console, import the package:
 
 ```python
->>> import pychedelic
+>>> import pyrainboweffect
 ```
 
 Apply the effect to an image file and save the result as a gif:
 
 ```python
->>> pychedelic.psychedelic_gif('input.png', 'output.gif')
+>>> pyrainboweffect.psychedelic_gif('input.png', 'output.gif')
 ```
 
 Apply the effect to an image file and save the result as an mp4:
 
 ```python
->>> pychedelic.psychedelic_mp4('input.png', 'output.gif')
+>>> pyrainboweffect.psychedelic_mp4('input.png', 'output.gif')
 ```
 
 ### CLI
 To use the CLI:
 
 ```bash
-$ python -m pychedelic input.png output.gif
+$ python -m pyrainboweffect input.png output.gif
 ```
 
 ## API Documentation
-For the complete API documentation, [click here](https://github.com/m-yuhas/pychedelic/blob/main/doc/api_documentation.md).
+For the complete API documentation, [click here](https://github.com/m-yuhas/pyrainboweffect/blob/main/doc/api_documentation.md).
 
 ## Theory of Operation
 This effect can be generated as follows:

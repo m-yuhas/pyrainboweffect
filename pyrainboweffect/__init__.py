@@ -18,4 +18,4 @@ blue.
 """
 
 
-from .pychedelic import *
+from .pyrainboweffect import *
