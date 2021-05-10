@@ -1,78 +1,73 @@
-# Pychedelic
-[中文指南](https://github.com/m-yuhas/pychedelic/blob/main/doc/读我档案.md)
-
-[Documentación en español](https://github.com/m-yuhas/pychedelic/blob/main/doc/LÉAME.md)
-
-[Documentation en français](https://github.com/m-yuhas/pychedelic/blob/main/doc/LISEZ-MOI.md)
-
+# pyrainboweffect
 ## Introduction
-Take an image like this:
+Prenez une image comme ceci:
 
-![image](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_in.png)
+![téléchargement en cours...](../images/demo0_in.png)
 
-And transform it to this:
+Et la transformez:
 
-![image](https://github.com/m-yuhas/pychedelic/blob/main/images/demo0_out.gif)
+![téléchargement en cours...](../images/demo0_out.gif)
 
-## Quick Start
-* Install the package:
+## Lancement Rapide
+* Installez le paquet:
 
 ```
-pip install pychedelic
+pip install pyrainboweffect
 ```
 
-### Python API
-In a Python console, import the package:
+### Python IPA
+Dans une console Python, importez le paquet:
 
 ```python
->>> import pychedelic
+>>> import pyrainboweffect
 ```
 
-Apply the effect to an image file and save the result as a gif:
+Appliquez l'effet à une fichier d'image et enregistrez le résultat comme GIF:
 
 ```python
->>> pychedelic.psychedelic_gif('input.png', 'output.gif')
+>>> pyrainboweffect.psychedelic_gif('input.png', 'output.gif')
 ```
 
-Apply the effect to an image file and save the result as an mp4:
+Appliquez l'effet à une fichier d'image et enregistrez le résultat comme mp4:
 
 ```python
->>> pychedelic.psychedelic_mp4('input.png', 'output.gif')
+>>> pyrainboweffect.psychedelic_mp4('input.png', 'output.gif')
 ```
 
-### CLI
-To use the CLI:
+### ILC
+Pour utiliser l'interface en ligne de commande:
 
 ```bash
-$ python -m pychedelic input.png output.gif
+$ python -m pyrainboweffect input.png output.gif
 ```
 
-## API Documentation
-For the complete API documentation, [click here](https://github.com/m-yuhas/pychedelic/blob/main/doc/api_documentation.md).
+## Documentation de l'IPA
+Pour la documentation complète, [cliquez ici](api_documentation.md).
+Actuellement la documentation est seulement disponible en anglais.
 
-## Theory of Operation
-It looks like this effect can be generated with the following steps:
-1. Convert the image to greyscale
-2. Partition the intensity space into the same number of partitions as colors
-  in the color scheme.
-3. Set the intesity regions to their corresponding colors
-4. Increase the intensity of all pixels in the images (restarting at 0
-  intensity if overflow occurs).
-5. Go to step 2 and repeat until there are enough sequential frames to make an
-  animation.
+## Théorie d'Operation
+Il semble que cet effet peut être généré avec les etapes suivantes:
+1. Convertir l'image en niveaux de gris.
+2. Partitionner l'espace d'intensité en le même nombre de partitions comme
+  couleurs dans la schéma de couleur.
+3. Mettre les régions d'intensité à leurs couleurs correspondantes.
+4. Majorer l'intensité des tous les pixels dans l'image originale (recommencer
+  à 0 si se produit le dépassement).
+5. Revenir à l'étape 2 et répéter jusqu'à ce qu'il y a cadres suffisantes pour
+  faire une animation.
 
-## Dependencies
-Only Python version 3.5 and greater are supported.  This package should run on
-any POSIX system as well as Windows 7 and greater.
+## Dépendances
+Ce paquet seulement supporte Python version 3.5 et plus.  Ce paquet devrait
+pouvoir être exécuté dans toute système POSIX aussi bien que Windows 7 et plus.
 
-The following Pypi packages are required:
+Les suivants paquets Pypi sont requis:
 * moviepy
 * numpy
 * opencv-python
 
-## Contributing
-Suggestions and pull requests are welcome.  If you find a bug and don't have
-time to fix it yourself, feel free to open an issue.
+## Comment Contribuer
+Suggestions et «pull requests» sont bienvenus.  Si trouvez un bug et vous
+n'avez pas le temps à le régler vous-même, s'il vous plaît ouvrez un problème.
 
-## Future Tasks
-- TODO: Apply the psychedelic effect to an animated image or video.
+## Tâches Futures
+- Appliquer l'effet psychédélique à une image animée ou vidéo.
