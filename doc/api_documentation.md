@@ -7,7 +7,7 @@ __CLI__
 In addition to providing a Python API to add effects to images, this module
 also provides a CLI tool.  This can be run from any terminal as follows:
 ```
-python -m pychedelic input.png ouput.mp4
+python -m pyrainboweffect input.png ouput.mp4
 ```
 
 __Module Level Constants__
