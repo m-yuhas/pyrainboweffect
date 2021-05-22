@@ -62,7 +62,7 @@ This effect can be generated as follows:
   animation.
 
 ## Dependencies
-Only Python version 3.5 and greater are supported.  This package should run on
+Only Python version 3.6 and greater are supported.  This package should run on
 any POSIX system as well as Windows 7 and greater.
 
 The following Pypi packages are required:

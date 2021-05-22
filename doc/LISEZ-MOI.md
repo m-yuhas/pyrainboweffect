@@ -57,7 +57,7 @@ Il semble que cet effet peut être généré avec les etapes suivantes:
   faire une animation.
 
 ## Dépendances
-Ce paquet seulement supporte Python version 3.5 et plus.  Ce paquet devrait
+Ce paquet seulement supporte Python version 3.6 et plus.  Ce paquet devrait
 pouvoir être exécuté dans toute système POSIX aussi bien que Windows 7 et plus.
 
 Les suivants paquets Pypi sont requis:
