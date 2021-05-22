@@ -15,7 +15,7 @@ with open(
 
 setup(
     name='pyrainboweffect',
-    version='0.1',
+    version='0.1.0',
     author='m-yuhas',
     author_email='m-yuhas@qq.com',
     maintainer='m-yuhas',
@@ -44,4 +44,4 @@ setup(
         'Topic :: Multimedia :: Graphics'],
     packages=['pyrainboweffect'],
     include_package_data=False,
-    install_requires=['moviepy', 'numpy', 'opencv-python'])
+    install_requires=['numpy', 'opencv-python', 'pillow'])
